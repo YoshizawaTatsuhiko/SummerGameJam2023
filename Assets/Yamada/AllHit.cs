@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class AllHit : TargetBase
 {
+    bool _isHit;
+
     public override void TargetAction()
     {
-        throw new System.NotImplementedException();
+        if (!_isHit)
+        {
+            var wall = GetComponentInParent<WallBase>();
+            wall.WallAction();
+            _isHit = true;
+        }
     }
 
     // Start is called before the first frame update
@@ -20,4 +27,5 @@ public class AllHit : TargetBase
     {
         
     }
+
 }
