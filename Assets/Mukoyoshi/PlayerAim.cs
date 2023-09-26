@@ -15,9 +15,16 @@ public class PlayerAim : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var aim = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var ray = Physics2D.Raycast(aim.origin, aim.direction);
-            Debug.Log(ray.collider.gameObject.name);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var raycastHit = Physics2D.Raycast(ray.origin, ray.direction);
+            Debug.Log(raycastHit.collider.gameObject.name);
+            if (raycastHit) 
+            {
+                if(raycastHit.collider.TryGetComponent(out TargetBase target)) 
+                {
+                    target.TargetAction();
+                }
+            }
 
         }
     }
