@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [Header("壁の生成")]
+    [Tooltip("何枚でクリアか"), SerializeField] int _numOfWall;
     [Tooltip("壁の生成位置"), SerializeField] Vector2 _spawnPosition;
     [Tooltip("通常の壁"), SerializeField] GameObject[] _nomalWalls;
     [Tooltip("順に当てる壁"), SerializeField] GameObject[] _orderWalls;
     [Tooltip("順に的が生成される壁"), SerializeField] GameObject[] _spawnWhenHitWalls;
     [Tooltip("最初に通常壁が生成される枚数"), SerializeField] int _numOfTutorialWalls;
-    int _numOfWall; // チュートリアル用変数
+    int _currentNumOfWall; // 今何枚目か
 
     [Header("スピード")]
     [Tooltip("初期スピード"), SerializeField] float _startSpeed;
@@ -16,7 +18,11 @@ public class GameManager : MonoBehaviour
 
     [Header("スコア")]
     [Tooltip("1枚突破で加算されるスコア"), SerializeField] int _addScore;
-    int _score;
+
+    [Header("リザルト")]
+    [Tooltip("リザルトキャンバス"), SerializeField] GameObject _resultCanvas;
+    [Tooltip("リザルトテキスト"), SerializeField] Text _resultText;
+    [Tooltip("スコアテキスト"), SerializeField] Text _scoreText;
 
     static GameManager _instance;
     public static GameManager Instance => _instance;
@@ -31,21 +37,32 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Speed = _startSpeed;
+        _resultCanvas.SetActive(false);
         // 1枚目をどうするか
+        Instantiate(_nomalWalls[0]).transform.position = _spawnPosition;
     }
 
     private void Update()
     {
         Speed += Time.deltaTime * _acceleration;
+        if (Input.GetMouseButtonDown(1))
+        {
+            GameOver();
+        }
     }
 
     public void BreakWall()
     {
-        _score += _addScore; // スコア加算
-        GameObject wall = null;
-        if (_numOfWall < _numOfTutorialWalls)
+        _currentNumOfWall++; // 枚数加算
+        if (_currentNumOfWall >= _numOfWall)
         {
-            _numOfWall++;
+            GameClear();
+            return;
+        }
+        GameObject wall = null;
+        if (_currentNumOfWall < _numOfTutorialWalls)
+        {
+            _currentNumOfWall++;
             wall = _nomalWalls[Random.Range(0, _nomalWalls.Length)];
         }
         else
@@ -65,10 +82,20 @@ public class GameManager : MonoBehaviour
         }
 
         Instantiate(wall).transform.position = _spawnPosition;
+        Debug.Log(_currentNumOfWall + "枚壊した");
     }
 
+    /// <summary>Game Over時の処理</summary>
     public void GameOver()
     {
+        _resultText.text = "Game Over"; // image,objectを変える場合は要変更
+        GameClear();
+    }
 
+    /// <summary>ゲームクリア時の処理</summary>
+    void GameClear()
+    {
+        _resultCanvas.SetActive(true);
+        _scoreText.text = (_currentNumOfWall * _addScore).ToString("00000");
     }
 }
