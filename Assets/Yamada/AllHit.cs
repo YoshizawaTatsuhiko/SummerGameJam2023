@@ -25,7 +25,14 @@ public class AllHit : TargetBase
     // Update is called once per frame
     void Update()
     {
-        
+        if(_isHit)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
 }
