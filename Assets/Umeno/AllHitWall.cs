@@ -10,9 +10,9 @@ public class AllHitWall : WallBase
         return _clearCount == _hitCount;
     }
 
-    public override void WallAction()
+    public override void WallAction(int n)
     {
-        _hitCount++;
+        _hitCount += n;
     }
 
     private void Update()
@@ -20,6 +20,7 @@ public class AllHitWall : WallBase
         if(Judge())
         {
             Debug.Log("”j‰ó");
+            Destroy(gameObject);
         }
     }
 }

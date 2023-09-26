@@ -11,7 +11,7 @@ public class AllHit : TargetBase
         if (!_isHit)
         {
             var wall = GetComponentInParent<WallBase>();
-            wall.WallAction();
+            wall.WallAction(1);
             _isHit = true;
         }
     }
@@ -25,7 +25,14 @@ public class AllHit : TargetBase
     // Update is called once per frame
     void Update()
     {
-        
+        if(_isHit)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
 }
