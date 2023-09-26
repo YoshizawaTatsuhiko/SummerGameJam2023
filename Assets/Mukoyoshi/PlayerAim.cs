@@ -23,6 +23,7 @@ public class PlayerAim : MonoBehaviour
                 if(raycastHit.collider.TryGetComponent(out TargetBase target)) 
                 {
                     target.TargetAction();
+                    Debug.Log("mato");
                 }
             }
 
