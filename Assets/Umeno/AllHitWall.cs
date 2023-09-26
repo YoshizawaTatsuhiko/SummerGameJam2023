@@ -20,6 +20,7 @@ public class AllHitWall : WallBase
         if(Judge())
         {
             Debug.Log("”j‰ó");
+            Destroy(gameObject);
         }
     }
 }
