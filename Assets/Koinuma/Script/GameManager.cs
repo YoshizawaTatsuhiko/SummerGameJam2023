@@ -18,12 +18,12 @@ public class GameManager : MonoBehaviour
     [Tooltip("1ñáìÀîjÇ≈â¡éZÇ≥ÇÍÇÈÉXÉRÉA"), SerializeField] int _addScore;
     int _score;
 
-    public static GameManager _instance;
+    static GameManager _instance;
+    public static GameManager Instance => _instance;
 
     private void Awake()
     {
         if (_instance == null) _instance = this;
-        else Destroy(gameObject);
     }
 
     public float Speed { get; private set; }
@@ -42,30 +42,28 @@ public class GameManager : MonoBehaviour
     public void BreakWall()
     {
         _score += _addScore; // ÉXÉRÉAâ¡éZ
+        GameObject wall = null;
         if (_numOfWall < _numOfTutorialWalls)
         {
             _numOfWall++;
-            SpawnWall(_nomalWalls[Random.Range(0, _nomalWalls.Length)]);
+            wall = _nomalWalls[Random.Range(0, _nomalWalls.Length)];
         }
         else
         {
             switch (Random.Range(0, 3))
             {
                 case 0:
-                    SpawnWall(_nomalWalls[Random.Range(0, _nomalWalls.Length)]);
+                    wall = _nomalWalls[Random.Range(0, _nomalWalls.Length)];
                     break;
                 case 1:
-                    SpawnWall(_orderWalls[Random.Range(0, _orderWalls.Length)]);
+                    wall = _orderWalls[Random.Range(0, _orderWalls.Length)];
                     break;
                 case 2:
-                    SpawnWall(_spawnWhenHitWalls[Random.Range(0, _spawnWhenHitWalls.Length)]);
+                    wall = _spawnWhenHitWalls[Random.Range(0, _spawnWhenHitWalls.Length)];
                     break;
             }
         }
-    }
 
-    void SpawnWall(GameObject wall)
-    {
         Instantiate(wall).transform.position = _spawnPosition;
     }
 
