@@ -11,7 +11,7 @@ public class AllHit : TargetBase
         if (!_isHit)
         {
             var wall = GetComponentInParent<WallBase>();
-            wall.WallAction();
+            wall.WallAction(1);
             _isHit = true;
         }
     }
