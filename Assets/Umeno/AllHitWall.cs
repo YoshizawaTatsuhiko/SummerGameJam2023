@@ -46,6 +46,15 @@ public class AllHitWall : WallBase
         transform.position = new Vector3(transform.position.x, transform.position.y, _zPosition -= _speed);
         if (!_isSuccess && transform.position.z > 0)
         {
+            var player = FindObjectOfType<PlayerAim>();
+            if (player)
+            {
+
+            }
+            else
+            {
+                Debug.LogError("playerスクリプトが存在しません");
+            }
             Debug.Log("GameOver");
             _gameManager.GameOver();
         }
