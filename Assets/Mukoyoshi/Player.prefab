@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5398575231185427400}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &791996547451949305
 MonoBehaviour:
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30db7bea3864f044d9ebcb875e3c52ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameOverSprite: {fileID: 21300000, guid: 1607e28315830f141ac70c3a64a94960, type: 3}
+  _shootSound: {fileID: 0}
 --- !u!212 &5398575231185427400
 SpriteRenderer:
   m_ObjectHideFlags: 0
