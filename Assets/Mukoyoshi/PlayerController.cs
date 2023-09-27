@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private Sprite _defaultSprite = null;
     [SerializeField] private Sprite _gameOverSprite = null;
     [SerializeField] private AudioClip _shootSound = null;
+    [SerializeField] private AudioClip _breakSound = null;
 
     private SpriteRenderer _renderer = null;
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
                 if (raycastHit.collider.TryGetComponent(out TargetBase target))
                 {
+                    AudioManager.Instance.PlaySE(_breakSound);
                     target.TargetAction();
                     Debug.Log("HIT");
                 }

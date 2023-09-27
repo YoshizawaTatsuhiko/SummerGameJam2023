@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SelectCorrectTarget : TargetBase
 {
-    [SerializeField] AudioClip _playSe;
     [SerializeField] bool _isCorrectButton;
     bool _isHit;
 
@@ -10,7 +9,6 @@ public class SelectCorrectTarget : TargetBase
     {
         if (!_isHit)
         {
-            AudioManager.Instance.PlaySE(_playSe);
             var wall = GetComponentInParent<WallBase>();
             Debug.Log($"IsCorrect{_isCorrectButton}");
             if (_isCorrectButton)
