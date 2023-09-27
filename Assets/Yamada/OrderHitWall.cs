@@ -15,6 +15,7 @@ public class OrderHitWall : WallBase
     GameManager _gameManager;
     float _baseTimer;
     float _zPosition;
+    bool _isSuccess;
     public Action ResetAction { get { return _resetAction; }set {_resetAction = value; } }
     public override bool Judge()
     {
@@ -40,6 +41,7 @@ public class OrderHitWall : WallBase
         {
             if (_selectNum.Count == _answer.Length)
             {
+                _isSuccess = true;
                 Debug.Log("破壊");
                 _gameManager.BreakWall();
             }
@@ -67,8 +69,17 @@ public class OrderHitWall : WallBase
             _timer = _baseTimer;
         }
         transform.position = new Vector3(transform.position.x, transform.position.y, _zPosition -= _speed);
-        if (transform.position.z > 0)
+        if (!_isSuccess && transform.position.z > 0)
         {
+            var player = FindObjectOfType<PlayerAim>();
+            if (player)
+            {
+
+            }
+            else
+            {
+                Debug.LogError("playerスクリプトが存在しません");
+            }
             Debug.Log("GameOver");
             _gameManager.GameOver();
         }

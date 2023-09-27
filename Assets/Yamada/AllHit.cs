@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AllHit : TargetBase
 {
+    [SerializeField] AudioClip _playSe;
     bool _isHit;
 
     public override void TargetAction()
     {
         if (!_isHit)
         {
+            AudioManager.Instance.PlaySE(_playSe);
             var wall = GetComponentInParent<WallBase>();
             wall.WallAction(1);
             _isHit = true;

@@ -9,6 +9,7 @@ public class AllHitWall : WallBase
     float _zPosition;
     float _baseTimer;
     int _hitCount = 0;
+    bool _isSuccess;
     public override bool Judge()
     {
 
@@ -20,6 +21,7 @@ public class AllHitWall : WallBase
         _hitCount += n;
         if (Judge())
         {
+            _isSuccess = true;
             Debug.Log("破壊");
             _gameManager.BreakWall();
             Destroy(gameObject);
@@ -42,8 +44,17 @@ public class AllHitWall : WallBase
             _timer = _baseTimer;
         }
         transform.position = new Vector3(transform.position.x, transform.position.y, _zPosition -= _speed);
-        if (transform.position.z > 0)
+        if (!_isSuccess && transform.position.z > 0)
         {
+            var player = FindObjectOfType<PlayerAim>();
+            if (player)
+            {
+
+            }
+            else
+            {
+                Debug.LogError("playerスクリプトが存在しません");
+            }
             Debug.Log("GameOver");
             _gameManager.GameOver();
         }
