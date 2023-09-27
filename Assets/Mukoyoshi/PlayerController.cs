@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAim : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    //[SerializeField] private Sprite _defaultSprite = null;
+    [SerializeField] private Sprite _gameOverSprite = null;
     [SerializeField] private AudioClip _shootSound = null;
+
+    private SpriteRenderer _renderer = null;
+
+    private void Start()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
@@ -25,5 +34,12 @@ public class PlayerAim : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>Œ»İ‚ÌSprite‚ğˆø”‚Åó‚¯æ‚Á‚½Sprite‚É•ÏX‚·‚é</summary>
+    /// <param name="sprite">·‚µ‘Ö‚¦‚½‚¢Sprite</param>
+    public void ChangeSprite()
+    {
+        if(_gameOverSprite) _renderer.sprite = _gameOverSprite;
     }
 }
