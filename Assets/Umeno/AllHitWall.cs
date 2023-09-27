@@ -5,6 +5,7 @@ public class AllHitWall : WallBase
     [SerializeField]int _clearCount = 3;
     [SerializeField] float _timer;
     [SerializeField] float _speed;
+    [SerializeField] Animator _doorAnim;
     GameManager _gameManager;
     float _zPosition;
     float _baseTimer;
@@ -21,10 +22,11 @@ public class AllHitWall : WallBase
         _hitCount += n;
         if (Judge())
         {
+            _doorAnim.Play("DoorOpen");
             _isSuccess = true;
             Debug.Log("”j‰ó");
             _gameManager.BreakWall();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

@@ -10,7 +10,6 @@ public class OrderHitWall : WallBase
     [SerializeField]string _answer = "12345";
     [SerializeField] float _timer;
     [SerializeField] float _speed;
-    [SerializeField] GameObject _gameOver;
     Action _resetAction;
     GameManager _gameManager;
     float _baseTimer;
@@ -55,7 +54,6 @@ public class OrderHitWall : WallBase
     private void OnEnable()
     {
         _gameManager = FindObjectOfType<GameManager>();
-        _gameOver.SetActive(false);
         _zPosition = transform.position.z;
         _speed = _gameManager.Speed;
         _baseTimer = _timer;

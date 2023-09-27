@@ -4,15 +4,20 @@ public class OrderHit : TargetBase
 {
     bool _isHit;
     [SerializeField] int _id = 1;
+    OrderHitWall _orderHitWall;
     //[SerializeField] private List<int> _selectNum;
 
+    private void Awake()
+    {
+        _orderHitWall = GetComponent<OrderHitWall>();
+    }
     private void OnEnable()
     {
-        GetComponentInParent<OrderHitWall>().ResetAction += ResetAction;
+        _orderHitWall.ResetAction += ResetAction;
     }
     private void OnDisable()
     {
-        GetComponentInParent<OrderHitWall>().ResetAction -= ResetAction;
+        _orderHitWall.ResetAction -= ResetAction;
     }
     public override void TargetAction()
     {

@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            switch (Random.Range(0, 3))
+            switch (0)
             {
                 case 0:
                     wall = _nomalWalls[Random.Range(0, _nomalWalls.Length)];
