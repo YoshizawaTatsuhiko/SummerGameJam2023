@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class OrderHit : TargetBase
 {
-    [SerializeField] AudioClip _playSe;
     bool _isHit;
     [SerializeField] int _id = 1;
     //[SerializeField] private List<int> _selectNum;
@@ -19,7 +18,6 @@ public class OrderHit : TargetBase
     {
         if (!_isHit)
         {
-            AudioManager.Instance.PlaySE(_playSe);
             var wall = GetComponentInParent<WallBase>();
             wall.WallAction(_id);
             _isHit = true;
