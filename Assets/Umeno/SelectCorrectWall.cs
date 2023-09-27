@@ -1,11 +1,17 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SelectCorrectWall : WallBase
 {
     [SerializeField] GameObject _blindfoldPrefab;
+    [SerializeField] float _speed = 0.1f;
+    [SerializeField] float _timer = 1f;
+    GameManager _gameManager;
+    float _zPosition;
     bool _isBlindFold;
     bool _isCorrect;
     float _blindTime = 10;
+    float _baseTimer;
 
 
     public override bool Judge()
@@ -24,14 +30,34 @@ public class SelectCorrectWall : WallBase
         {
             _isCorrect = true;
         }
+        if (Judge())
+        {
+            Debug.Log("”j‰ó");
+            _gameManager.BreakWall();
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnEnable()
+    {
+        _zPosition = transform.position.z;
+        _gameManager = FindObjectOfType<GameManager>();
+        _speed = _gameManager.Speed;
+        _baseTimer = _timer;
     }
 
     private void Update()
     {
-        if (Judge())
+        _timer -= Time.deltaTime;
+        if (_timer < 0)
         {
-            Debug.Log("”j‰ó");
-            Destroy(gameObject);
+            _speed = _gameManager.Speed;
+            _timer = _baseTimer;
+        }
+        transform.position = new Vector3(transform.position.x, transform.position.y, _zPosition -= _speed);
+        if (transform.position.z < 0)
+        {
+            _gameManager.GameOver();
         }
         if(_isBlindFold)
         {
