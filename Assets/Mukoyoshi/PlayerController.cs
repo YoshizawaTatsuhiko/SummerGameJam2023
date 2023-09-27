@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
             {
                 AudioManager.Instance.PlaySE(_shootSound);
                 Debug.Log($"Hit object : {raycastHit.collider.gameObject.name}");
-
+                Debug.DrawRay(ray.origin, ray.direction, Color.red);
                 if (raycastHit.collider.TryGetComponent(out TargetBase target))
                 {
                     AudioManager.Instance.PlaySE(_breakSound);
