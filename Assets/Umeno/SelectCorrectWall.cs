@@ -12,6 +12,7 @@ public class SelectCorrectWall : WallBase
     bool _isCorrect;
     float _blindTime = 10;
     float _baseTimer;
+    bool _isSuccess;
 
 
     public override bool Judge()
@@ -32,6 +33,7 @@ public class SelectCorrectWall : WallBase
         }
         if (Judge())
         {
+            _isSuccess = true;
             Debug.Log("”j‰ó");
             _gameManager.BreakWall();
             Destroy(gameObject);
@@ -55,7 +57,7 @@ public class SelectCorrectWall : WallBase
             _timer = _baseTimer;
         }
         transform.position = new Vector3(transform.position.x, transform.position.y, _zPosition -= _speed);
-        if (transform.position.z < 0)
+        if (!_isSuccess && transform.position.z < 0)
         {
             _gameManager.GameOver();
         }
