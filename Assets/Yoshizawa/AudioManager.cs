@@ -30,13 +30,19 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM(AudioClip clip)
     {
-        _bgm.clip = clip;
-        _bgm.Play();
+        if (clip)
+        {
+            _bgm.clip = clip;
+            _bgm.Play();
+        }
     }
 
     public void StopBGM() => _bgm.Stop();
 
-    public void PlaySE(AudioClip clip) => _se.PlayOneShot(clip);
+    public void PlaySE(AudioClip clip)
+    {
+        if(clip) _se.PlayOneShot(clip);
+    }
 
     public void StopSE() => _se.Stop();
 }
