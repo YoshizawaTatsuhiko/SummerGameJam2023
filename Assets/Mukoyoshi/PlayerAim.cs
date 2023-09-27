@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField] private AudioClip _shootSound = null;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             var raycastHit = Physics2D.Raycast(ray.origin, ray.direction);
-            Debug.Log(raycastHit.collider.gameObject.name);
-            if (raycastHit) 
+
+            if (raycastHit)
             {
-                if(raycastHit.collider.TryGetComponent(out TargetBase target)) 
+                AudioManager.Instance.PlaySE(_shootSound);
+                Debug.Log($"Hit object : {raycastHit.collider.gameObject.name}");
+
+                if (raycastHit.collider.TryGetComponent(out TargetBase target))
                 {
                     target.TargetAction();
-                    Debug.Log("mato");
+                    Debug.Log("HIT");
                 }
             }
-
         }
     }
 }
