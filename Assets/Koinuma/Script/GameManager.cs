@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     [Header("リザルト")]
     [Tooltip("リザルトキャンバス"), SerializeField] GameObject _resultCanvas;
     [Tooltip("リザルトテキスト"), SerializeField] Text _resultText;
+    [SerializeField] Sprite _gameOverImage;
+    [SerializeField] Image _resultImage;
     [Tooltip("スコアテキスト"), SerializeField] Text _scoreText;
 
     [Header("Audio")]
@@ -98,7 +100,8 @@ public class GameManager : MonoBehaviour
     /// <summary>Game Over時の処理</summary>
     public void GameOver()
     {
-        _resultText.text = "Game Over"; // image,objectを変える場合は要変更
+        _resultImage.sprite = _gameOverImage;
+        //_resultText.text = "Game Over"; // image,objectを変える場合は要変更
         GameClear();
         AudioManager.Instance.PlayBGM(_gameOverSound, false);
 
