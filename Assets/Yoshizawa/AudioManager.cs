@@ -21,18 +21,18 @@ public class AudioManager : MonoBehaviour
 
         if (!_bgm) _bgm = gameObject.AddComponent<AudioSource>();
         _bgm.playOnAwake = false;
-        _bgm.loop = true;
 
         if (!_se) _se = gameObject.AddComponent<AudioSource>();
         _se.playOnAwake = false;
         _se.loop = false;
     }
 
-    public void PlayBGM(AudioClip clip)
+    public void PlayBGM(AudioClip clip, bool isLoop = true)
     {
         if (clip)
         {
             _bgm.clip = clip;
+            _bgm.loop = isLoop;
             _bgm.Play();
         }
     }

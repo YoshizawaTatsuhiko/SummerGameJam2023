@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OrderHit : TargetBase
 {
+    [SerializeField] AudioClip _playSe;
     bool _isHit;
     [SerializeField] int _id = 1;
     //[SerializeField] private List<int> _selectNum;
@@ -20,10 +19,9 @@ public class OrderHit : TargetBase
     {
         if (!_isHit)
         {
-            Debug.Log(_id);
+            AudioManager.Instance.PlaySE(_playSe);
             var wall = GetComponentInParent<WallBase>();
             wall.WallAction(_id);
-            Debug.Log(_id);
             _isHit = true;
         }
     }
