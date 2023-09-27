@@ -287,6 +287,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1060347251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4677848037183996431, guid: d71d63648b3488841a23de892c81967c, type: 3}
+  m_PrefabInstance: {fileID: 1335939133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1187897509
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4677848037183996431, guid: d71d63648b3488841a23de892c81967c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8141324523159838469, guid: d71d63648b3488841a23de892c81967c, type: 3}
       propertyPath: m_Pivot.x
@@ -470,7 +475,7 @@ MonoBehaviour:
   _startSpeed: 0.01
   _acceleration: 0
   _addScore: 0
-  _resultCanvas: {fileID: 4677848037183996431, guid: d71d63648b3488841a23de892c81967c, type: 3}
+  _resultCanvas: {fileID: 1060347251}
   _resultText: {fileID: 157954618}
   _scoreText: {fileID: 2128657556}
   _inGameBGM: {fileID: 0}
