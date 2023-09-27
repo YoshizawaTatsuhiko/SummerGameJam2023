@@ -26,7 +26,7 @@ public class AllHitWall : WallBase
             _isSuccess = true;
             Debug.Log("”j‰ó");
             _gameManager.BreakWall();
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
