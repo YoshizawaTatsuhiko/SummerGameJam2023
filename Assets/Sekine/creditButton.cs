@@ -10,8 +10,7 @@ public class creditButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Credit.SetActive(false);
-        StartButton.SetActive(true);
+
     }
 
     public void OnClick()
