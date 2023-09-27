@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c459c057fb247cb45b942075a38219a0, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d322a35ade47e54d9d324e65bbba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playSe: {fileID: 0}
   _isCorrectButton: 1
 --- !u!58 &2418455369061684070
 CircleCollider2D:
@@ -152,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5779029365769139379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -388,8 +389,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c459c057fb247cb45b942075a38219a0, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.119636536, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -411,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d322a35ade47e54d9d324e65bbba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playSe: {fileID: 0}
   _isCorrectButton: 0
 --- !u!58 &9160525971881824604
 CircleCollider2D:
@@ -522,8 +524,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c459c057fb247cb45b942075a38219a0, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -545,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d322a35ade47e54d9d324e65bbba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playSe: {fileID: 0}
   _isCorrectButton: 1
 --- !u!58 &8664015182366604704
 CircleCollider2D:
@@ -656,8 +659,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c459c057fb247cb45b942075a38219a0, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -679,6 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d322a35ade47e54d9d324e65bbba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playSe: {fileID: 0}
   _isCorrectButton: 1
 --- !u!58 &7516418394592095312
 CircleCollider2D:
@@ -790,8 +794,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c459c057fb247cb45b942075a38219a0, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -813,6 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d322a35ade47e54d9d324e65bbba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playSe: {fileID: 0}
   _isCorrectButton: 1
 --- !u!58 &7063832936814959517
 CircleCollider2D:
@@ -1031,8 +1036,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c459c057fb247cb45b942075a38219a0, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1054,6 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d322a35ade47e54d9d324e65bbba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playSe: {fileID: 0}
   _isCorrectButton: 1
 --- !u!58 &7153640517526378548
 CircleCollider2D:
