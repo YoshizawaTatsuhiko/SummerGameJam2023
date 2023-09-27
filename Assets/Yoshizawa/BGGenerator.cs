@@ -11,8 +11,6 @@ public class BGGenerator : MonoBehaviour
 
     private List<BGMove> _backGrounds = new List<BGMove>();
 
-    private float _timer = 0.0f;
-
     private void Start()
     {
         BackGroundGenerate();
@@ -22,6 +20,8 @@ public class BGGenerator : MonoBehaviour
     {
         if (CalcInterval())
         {
+            if (!_backGrounds[0]) _backGrounds.RemoveAt(0);
+
             BackGroundGenerate();
         }
     }
