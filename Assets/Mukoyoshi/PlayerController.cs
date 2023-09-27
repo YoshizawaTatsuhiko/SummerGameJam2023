@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     //[SerializeField] private Sprite _defaultSprite = null;
     [SerializeField] private Sprite _gameOverSprite = null;
+    [SerializeField] private Image _crosshair = null;
     [SerializeField] private AudioClip _shootSound = null;
     [SerializeField] private AudioClip _breakSound = null;
 
     private SpriteRenderer _renderer = null;
+    private bool _isGameFinish = false;
 
     private void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        Cursor.visible = false;
     }
 
     void Update()
@@ -36,6 +40,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        if (!_isGameFinish)
+        {
+            _crosshair.rectTransform.position = Input.mousePosition;
+        }
     }
 
     /// <summary>åªç›ÇÃSpriteÇà¯êîÇ≈éÛÇØéÊÇ¡ÇΩSpriteÇ…ïœçXÇ∑ÇÈ</summary>
@@ -43,5 +52,7 @@ public class PlayerController : MonoBehaviour
     public void ChangeSprite()
     {
         if(_gameOverSprite) _renderer.sprite = _gameOverSprite;
+        _isGameFinish = true;
+        Cursor.visible = true;
     }
 }
