@@ -24,6 +24,13 @@ public class GameManager : MonoBehaviour
     [Tooltip("リザルトテキスト"), SerializeField] Text _resultText;
     [Tooltip("スコアテキスト"), SerializeField] Text _scoreText;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip _inGameBGM;
+    [SerializeField] AudioClip _clearSound;
+    [SerializeField] AudioClip _gameOverSound;
+    [SerializeField] AudioClip _breakWallSound;
+    [Tooltip("When game overプレイヤーが爆発する音")] AudioClip _playerBoomSound;
+
     static GameManager _instance;
     public static GameManager Instance => _instance;
 
@@ -38,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         Speed = _startSpeed;
         _resultCanvas.SetActive(false);
+        AudioManager.Instance.PlayBGM(_inGameBGM);
         // 1枚目をどうするか
         Instantiate(_nomalWalls[0]).transform.position = _spawnPosition;
     }
@@ -54,6 +62,8 @@ public class GameManager : MonoBehaviour
     public void BreakWall()
     {
         _currentNumOfWall++; // 枚数加算
+        AudioManager.Instance.PlaySE(_breakWallSound);
+        AudioManager.Instance.PlaySE(_playerBoomSound);
         if (_currentNumOfWall >= _numOfWall)
         {
             GameClear();
@@ -90,6 +100,8 @@ public class GameManager : MonoBehaviour
     {
         _resultText.text = "Game Over"; // image,objectを変える場合は要変更
         GameClear();
+        AudioManager.Instance.PlayBGM(_gameOverSound, false);
+
     }
 
     /// <summary>ゲームクリア時の処理</summary>
@@ -97,5 +109,6 @@ public class GameManager : MonoBehaviour
     {
         _resultCanvas.SetActive(true);
         _scoreText.text = (_currentNumOfWall * _addScore).ToString("00000");
+        AudioManager.Instance.PlayBGM(_clearSound, false);
     }
 }
