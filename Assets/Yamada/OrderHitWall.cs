@@ -71,10 +71,10 @@ public class OrderHitWall : WallBase
         transform.position = new Vector3(transform.position.x, transform.position.y, _zPosition -= _speed);
         if (!_isSuccess && transform.position.z > 0)
         {
-            var player = FindObjectOfType<PlayerAim>();
+            var player = FindObjectOfType<PlayerController>();
             if (player)
             {
-
+                player.ChangeSprite();
             }
             else
             {
