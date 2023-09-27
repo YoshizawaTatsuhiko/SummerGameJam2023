@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("壁の生成")]
     [Tooltip("何枚でクリアか"), SerializeField] int _numOfWall;
-    [Tooltip("壁の生成位置"), SerializeField] Vector2 _spawnPosition;
+    [Tooltip("壁の生成位置"), SerializeField] Vector3 _spawnPosition;
     [Tooltip("通常の壁"), SerializeField] GameObject[] _nomalWalls;
     [Tooltip("順に当てる壁"), SerializeField] GameObject[] _orderWalls;
     [Tooltip("順に的が生成される壁"), SerializeField] GameObject[] _spawnWhenHitWalls;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         _resultCanvas.SetActive(false);
         AudioManager.Instance.PlayBGM(_inGameBGM);
         // 1枚目をどうするか
-        Instantiate(_nomalWalls[0]).transform.position = _spawnPosition;
+        Instantiate(_nomalWalls[0], _spawnPosition, transform.rotation, transform);
     }
 
     private void Update()
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Instantiate(wall).transform.position = _spawnPosition;
+        Instantiate(wall, _spawnPosition, transform.rotation, transform);
         Debug.Log(_currentNumOfWall + "枚壊した");
     }
 
